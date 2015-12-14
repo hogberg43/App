@@ -62,10 +62,11 @@
     <Compile Include="ConvertLineBreaksToHtmlTests.cs" />
     <Compile Include="ForEachOfTTests.cs" />
     <Compile Include="IsValidDateTests.cs" />
-    <Compile Include="IsValidDate_DateFormatTests.cs" />
+    <Compile Include="IsValidDateDateFormatTests.cs" />
     <Compile Include="OrderByDynamicTests.cs" />
     <Compile Include="ParseForXmlTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StripDomainTests.cs" />
     <Compile Include="ToBooleanByTrueValTests.cs" />
     <Compile Include="ToDateTimeTests.cs" />
     <Compile Include="ToInt64Tests.cs" />

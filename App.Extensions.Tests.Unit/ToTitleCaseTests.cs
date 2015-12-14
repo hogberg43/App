@@ -36,5 +36,11 @@ namespace App.Extensions.Tests.Unit
         {
             TestObject("  ", "  ");
         }
+
+        [TestMethod]
+        public void GivenOneWordReturnsSameWordCapitalized()
+        {
+            TestObject("testing", "Testing");
+        }
     }
 }

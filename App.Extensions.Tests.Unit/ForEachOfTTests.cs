@@ -8,40 +8,40 @@ namespace App.Extensions.Tests.Unit
     [TestClass]
     public class ForEachOfTTests
     {
-        List<string> result;
-        Action<string> actn;
+        List<string> _result;
+        Action<string> _actn;
 
         [TestInitialize]
         public void Setup()
         {
-            result = new List<string>();
-            actn = s => result.Add(s + "Test");
+            _result = new List<string>();
+            _actn = s => _result.Add(s + "Test");
         }
 
         [TestCleanup]
         public void TearDown()
         {
-            result = null;
-            actn = null;
+            _result = null;
+            _actn = null;
         }
         
         [TestMethod]
         public void GivenEmptyIEnumerableOfStringDoesNothingToTheEnumeration()
         {
             var enumeration = new List<string>();
-            enumeration.ForEach(actn);
-            Assert.IsTrue(result.Count == 0);
+            enumeration.ForEach(_actn);
+            Assert.IsTrue(_result.Count == 0);
         }
 
         [TestMethod]
         public void GivenIEnumerableOfStringContaining3StringsAddsTestOutputToTheResult()
         {
             var enumeration = new List<string>{"1", "2", "3"};
-            enumeration.ForEach(actn);
-            Assert.IsTrue(result.Count == 3);
-            Assert.AreEqual(result[0], "1Test");
-            Assert.AreEqual(result[1], "2Test");
-            Assert.AreEqual(result[2], "3Test");
+            enumeration.ForEach(_actn);
+            Assert.IsTrue(_result.Count == 3);
+            Assert.AreEqual(_result[0], "1Test");
+            Assert.AreEqual(_result[1], "2Test");
+            Assert.AreEqual(_result[2], "3Test");
         }
 
         [TestMethod]

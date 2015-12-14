@@ -408,5 +408,10 @@ namespace App.Extensions
             return sb.ToString();
         }
 
+        public static string StripDomain(this string s)
+        {
+            return (!s.Contains('\\')) ? s : s.Substring(s.LastIndexOf('\\') + 1);
+        }
+
     }
 }

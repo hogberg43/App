@@ -3,7 +3,7 @@
 namespace App.Extensions.Tests.Unit
 {
     [TestClass]
-    public class IsValidDate_DateFormatTests
+    public class IsValidDateDateFormatTests
     {
         private static void TestObject(string valToTest, string dateFormat, bool expectedResult)
         {
