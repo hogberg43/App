@@ -56,5 +56,18 @@ namespace App.Extensions.Tests.Unit
             // Assert
             Assert.AreEqual("", actual);
         }
+
+        [TestMethod]
+        public void StripDomain_Given_a_null_string_returns_empty_string()
+        {
+            // Arrange
+            string testString = null;
+
+            // Act
+            var actual = testString.StripDomain();
+
+            // Assert
+            Assert.AreEqual("", actual);
+        }
     }
 }

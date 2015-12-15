@@ -410,6 +410,7 @@ namespace App.Extensions
 
         public static string StripDomain(this string s)
         {
+            if (s == null) return "";
             return (!s.Contains('\\')) ? s : s.Substring(s.LastIndexOf('\\') + 1);
         }
 
