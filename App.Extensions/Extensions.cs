@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Globalization;
+using System.IO;
 using System.Web.UI.WebControls;
 
 namespace App.Extensions
@@ -414,5 +415,29 @@ namespace App.Extensions
             return (!s.Contains('\\')) ? s : s.Substring(s.LastIndexOf('\\') + 1);
         }
 
+        public static byte[] ReadToBytes(this Stream input)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                input.CopyTo(ms);
+                return ms.ToArray();
+            }
+        }
+
+        public static IEnumerable<IEnumerable<T>> Chunk<T>(this IEnumerable<T> source, int chunksize)
+        {
+            if (source == null)
+            {
+                yield return new List<T>().AsEnumerable();
+            }
+            else
+            {
+                while (source.Any())
+                {
+                    yield return source.Take(chunksize);
+                    source = source.Skip(chunksize);
+                }
+            }
+        }
     }
 }
